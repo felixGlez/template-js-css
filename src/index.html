@@ -7,10 +7,26 @@
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/style.css" />
     <title>Vite App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
   </head>
   <body>
-    <h1>Hola</h1>
-    <!-- <img src="./assets/images/cute-cat.webp" alt="" /> -->
+
+    <div class="main">
+      <div class="game-container">
+        <h2 id="game-question" class="center">Pregunta</h2>
+        <div id="question-options" class="flex">
+          <div class="option" data-option="a">a</div>
+          <div class="option" data-option="b">b</div>
+          <div class="option" data-option="c">c</div>
+          <div class="option" data-option="d">d</div>
+        </div>
+        <div id="results" class="center">
+        </div>
+      </div>
+    </div>
+
     <script type="module" src="./js/index.js"></script>
   </body>
 </html>
