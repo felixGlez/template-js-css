@@ -12,25 +12,31 @@ const optionsElement = document.getElementById('question-options');
 const resultsElement = document.getElementById('results');
 
 let round = 0;
-let userResponses = [];
+const userResponses = [];
 
 // FUNCIONES
 const displayResults = () => {
 	optionsElement.classList.replace('flex', 'hide');
+	questionElement.classList.replace('flex', 'hide');
 	const fragmentElement = document.createDocumentFragment();
 
 	for (let i = 0; i < userResponses.length; i++) {
 		const newQuestion = document.createElement('h2');
 		newQuestion.textContent = userResponses[i].question;
 		const newCorrectAnswer = document.createElement('h3');
-		newCorrectAnswer.textContent = `${userResponses[i].correctAnswer}`;
+		newCorrectAnswer.textContent = userResponses[i].correctAnswer;
 		const newUserAnswer = document.createElement('h3');
-		newUserAnswer.textContent = ' ' + userResponses[i].userAnswer;
+		newUserAnswer.textContent = userResponses[i].userAnswer;
 		const newDiv = document.createElement('div');
 		newDiv.classList.add('result-box');
 		newDiv.append(newCorrectAnswer, newUserAnswer);
-
 		fragmentElement.append(newQuestion, newDiv);
+
+		if (userResponses[i].correctAnswer === QUESTIONS[i].correctAnswer) {
+			newUserAnswer.style.color = 'green';
+		} else {
+			newUserAnswer.style.color = 'black';
+		}
 	}
 	resultsElement.append(fragmentElement);
 };
