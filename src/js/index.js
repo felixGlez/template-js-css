@@ -18,6 +18,7 @@ const userResponses = [];
 const displayResults = () => {
 	optionsElement.classList.replace('flex', 'hide');
 	questionElement.classList.replace('flex', 'hide');
+
 	const fragmentElement = document.createDocumentFragment();
 
 	for (let i = 0; i < userResponses.length; i++) {
@@ -32,10 +33,10 @@ const displayResults = () => {
 		newDiv.append(newCorrectAnswer, newUserAnswer);
 		fragmentElement.append(newQuestion, newDiv);
 
-		if (userResponses[i].correctAnswer === QUESTIONS[i].correctAnswer) {
+		if (newUserAnswer.textContent === QUESTIONS[i].correctAnswer) {
 			newUserAnswer.style.color = 'green';
 		} else {
-			newUserAnswer.style.color = 'black';
+			newUserAnswer.style.color = 'red';
 		}
 	}
 	resultsElement.append(fragmentElement);
